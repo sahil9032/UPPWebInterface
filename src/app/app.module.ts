@@ -10,6 +10,7 @@ import { IndexComponent } from './client/index/index.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PostComponent } from './client/post/post.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     FooterComponent,
     PageNotFoundComponent,
     IndexComponent,
-    PostComponent
+    PostComponent,
+    TermsAndConditionsComponent
   ],
   imports: [
     BrowserModule,
