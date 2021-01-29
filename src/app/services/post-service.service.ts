@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IPost} from '../models/ipost';
 
@@ -18,7 +18,6 @@ export class PostServiceService {
     deleteComment: this.ip + 'blog/delete/comment/',
     updatePost: this.ip + 'blog/update/',
   };
-  headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) {
   }

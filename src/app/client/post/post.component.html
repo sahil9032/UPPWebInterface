@@ -20,7 +20,8 @@
       <textarea class="form-control" rows="5" formControlName="content"></textarea>
     </div>
     <div class="text-right">
-      <button class="btn btn-primary" type="submit" [disabled]="!commentForm.valid">Comment</button>
+      <re-captcha (resolved)="resolved($event)" siteKey="6LeIvzkaAAAAAEdo4JoUuRuYuQQUBdeyRhrsb1hn"></re-captcha>
+      <button class="btn btn-primary" type="submit" [disabled]="!commentForm.valid || !isHuman">Comment</button>
     </div>
   </form>
   <ul *ngFor="let comment of post.comments" class="list-group">

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PostServiceService} from '../../services/post-service.service';
 import {IPost} from '../../models/ipost';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -12,7 +13,8 @@ export class IndexComponent implements OnInit {
   public posts: IPost[] = [];
   public newPosts: IPost[][] = [];
 
-  constructor(private postService: PostServiceService) {
+  constructor(private postService: PostServiceService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -21,6 +23,8 @@ export class IndexComponent implements OnInit {
       while (this.posts.length) {
         this.newPosts.push(this.posts.splice(0, 3));
       }
+    }, error => {
+      this.router.navigate(['/internalerror']);
     });
   }
 }

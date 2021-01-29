@@ -3,6 +3,8 @@ import {IPost} from '../../models/ipost';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostServiceService} from '../../services/post-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {RecaptchaService} from '../../services/recaptcha.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-post',
@@ -15,44 +17,113 @@ export class PostComponent implements OnInit {
   public post: IPost;
   public commentForm: FormGroup;
   public message: string;
+  public isHuman: boolean;
 
   constructor(private postService: PostServiceService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private recaptcha: RecaptchaService,
+              private authService: AuthService) {
     this.id = this.activatedRoute.snapshot.params.id;
+    this.isHuman = false;
     this.message = '';
     this.commentForm = this.formBuilder.group({
       author: ['Anonymous'],
       content: ['', Validators.required]
+    });
+    this.postService.getPostById(this.id).subscribe(data => {
+      this.post = data;
+    }, error => {
+      this.router.navigate(['/error']);
     });
   }
 
   ngOnInit(): void {
     this.postService.getPostById(this.id).subscribe(data => {
       this.post = data;
-      if (this.post._id === '-1') {
-        this.router.navigate(['/error']);
-      }
+    }, error => {
+      this.router.navigate(['/error']);
     });
+  }
+
+  async resolved(captchaResponse: string): Promise<void> {
+    await this.sendTokenToBackend(captchaResponse);
+  }
+
+  sendTokenToBackend(token: string): void {
+    this.recaptcha.sendToken(token).subscribe(
+      data => {
+        this.isHuman = data.success;
+      }
+    );
   }
 
   add(): void {
     if (this.commentForm.invalid) {
       return;
     } else {
-      const comment = {
-        _id: this.post._id,
-        author: 'Anonymous',
-        content: this.commentForm.controls.content.value
-      };
-      this.postService.addComment(comment).subscribe(data => {
-        if (data._id === '-1') {
-          this.message = 'Unable to add commment';
-        } else {
+      const str = localStorage.getItem('token');
+      if (!str) {
+        const comment = {
+          _id: this.post._id,
+          author: 'Anonymous',
+          content: this.commentForm.controls.content.value
+        };
+        this.postService.addComment(comment).subscribe(data => {
+          this.isHuman = false;
           this.ngOnInit();
-        }
+        }, error => {
+          this.router.navigate(['/internalerror']);
+        });
+        return;
+      }
+      const json = JSON.parse(str);
+      if (new Date().getTime() > json.expiry) {
+        localStorage.clear();
+        const comment = {
+          _id: this.post._id,
+          author: 'Anonymous',
+          content: this.commentForm.controls.content.value
+        };
+        this.postService.addComment(comment).subscribe(data => {
+          this.isHuman = false;
+          this.ngOnInit();
+        }, error => {
+          this.router.navigate(['/internalerror']);
+        });
+        return;
+      }
+      const body = {
+        token: json.token,
+      };
+      this.authService.verify(body).subscribe(data => {
+        const comment = {
+          _id: this.post._id,
+          author: data.user.name,
+          content: this.commentForm.controls.content.value
+        };
+        console.log(comment);
+        this.postService.addComment(comment).subscribe(datas => {
+          this.isHuman = false;
+          this.ngOnInit();
+        }, error => {
+          this.router.navigate(['/internalerror']);
+        });
+      }, error => {
+        const comment = {
+          _id: this.post._id,
+          author: 'Anonymous',
+          content: this.commentForm.controls.content.value
+        };
+        this.postService.addComment(comment).subscribe(data => {
+          this.isHuman = false;
+          this.ngOnInit();
+        }, err => {
+          this.router.navigate(['/internalerror']);
+        });
       });
+      return;
     }
   }
 }
