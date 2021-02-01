@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public ip = 'https://uppbackend.azurewebsites.net/';
+  public ip = environment.backend;
   public urls = {
     signup: this.ip + 'user/signup',
     login: this.ip + 'user/login',

@@ -16,11 +16,13 @@ export class AddPostComponent implements OnInit {
   constructor(private postService: PostServiceService,
               private formBuilder: FormBuilder,
               private router: Router) {
+
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
       file: ['', Validators.required],
       content: ['', Validators.required],
-      token: [localStorage.getItem('token')]
+      // @ts-ignore
+      token: [JSON.parse(localStorage.getItem('token')).token]
     });
     this.message = '';
   }
