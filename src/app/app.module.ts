@@ -1,3 +1,8 @@
+import { SubjectQuestionComponent } from './client/subject-question/subject-question.component';
+import { QuizComponent } from './client/quiz/quiz.component';
+import { PlcrecordComponent } from './client/plcrecord/plcrecord.component';
+import { PlacementComponent } from './client/placement/placement.component';
+import { MaterialModule } from './material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -31,14 +36,19 @@ import { RegisterComponent } from './register/register.component';
     LoginComponent,
     AddPostComponent,
     AccessDeniedComponent,
-    RegisterComponent
+    RegisterComponent,
+    PlacementComponent,
+    PlcrecordComponent,
+    QuizComponent,
+    SubjectQuestionComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RecaptchaModule
+    RecaptchaModule,
+    MaterialModule, 
   ],
   providers: [],
   bootstrap: [AppComponent]
