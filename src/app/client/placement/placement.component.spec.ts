@@ -1,6 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlacementComponent } from './placement.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {AppRoutingModule} from '../../app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import {RecaptchaModule} from 'ng-recaptcha';
+import {MaterialModule} from '../../material.module';
 
 describe('PlacementComponent', () => {
   let component: PlacementComponent;
@@ -8,7 +14,15 @@ describe('PlacementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlacementComponent ]
+      declarations: [ PlacementComponent ],
+      imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        RecaptchaModule,
+        MaterialModule,
+      ],
     })
     .compileComponents();
   });

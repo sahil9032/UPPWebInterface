@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   backend: 'https://uppbackend.azurewebsites.net/',
+  password: 'user10702'
 };
 
 /*

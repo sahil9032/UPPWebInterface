@@ -40,7 +40,7 @@ import { RegisterComponent } from './register/register.component';
     PlacementComponent,
     PlcrecordComponent,
     QuizComponent,
-    SubjectQuestionComponent, 
+    SubjectQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +48,7 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     ReactiveFormsModule,
     RecaptchaModule,
-    MaterialModule, 
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
