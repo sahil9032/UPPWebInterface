@@ -1,7 +1,7 @@
-import { PlcrecordComponent } from './client/plcrecord/plcrecord.component';
-import { SubjectQuestionComponent } from './client/subject-question/subject-question.component';
-import { QuizComponent } from './client/quiz/quiz.component';
-import { PlacementComponent } from './client/placement/placement.component';
+import {PlcrecordComponent} from './client/plcrecord/plcrecord.component';
+import {SubjectQuestionComponent} from './client/subject-question/subject-question.component';
+import {QuizComponent} from './client/quiz/quiz.component';
+import {PlacementComponent} from './client/placement/placement.component';
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
@@ -14,12 +14,16 @@ import {AddPostComponent} from './expert/add-post/add-post.component';
 import {AuthGuard} from './guard/auth.guard';
 import {AccessDeniedComponent} from './access-denied/access-denied.component';
 import {RegisterComponent} from './register/register.component';
+import {ProblemsComponent} from './problems/problems.component';
+import {ProblemSolveComponent} from './problem-solve/problem-solve.component';
 
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
   {path: 'upp-login', component: LoginComponent},
   {path: 'post/:id', component: PostComponent},
   {path: 'placement', component: PlacementComponent},
+  {path: 'problems', component: ProblemsComponent},
+  {path: 'problems/:id', component: ProblemSolveComponent},
   {path: 'quiz', component: QuizComponent},
   {path: 'question', component: SubjectQuestionComponent},
   {path: 'plcrecord', component: PlcrecordComponent},

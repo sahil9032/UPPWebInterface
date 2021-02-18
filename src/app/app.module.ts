@@ -22,6 +22,8 @@ import { LoginComponent } from './login/login.component';
 import { AddPostComponent } from './expert/add-post/add-post.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { RegisterComponent } from './register/register.component';
+import { ProblemsComponent } from './problems/problems.component';
+import { ProblemSolveComponent } from './problem-solve/problem-solve.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { RegisterComponent } from './register/register.component';
     PlacementComponent,
     PlcrecordComponent,
     QuizComponent,
-    SubjectQuestionComponent
+    SubjectQuestionComponent,
+    ProblemsComponent,
+    ProblemSolveComponent
   ],
   imports: [
     BrowserModule,
