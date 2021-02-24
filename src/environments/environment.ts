@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backend: 'https://uppbackend.azurewebsites.net/',
+  backend: 'http://api.plax.tech/',
   password: 'user10702'
 };
 
