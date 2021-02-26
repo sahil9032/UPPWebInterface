@@ -2,16 +2,48 @@ import {Component, OnInit} from '@angular/core';
 import {PostServiceService} from '../../services/post-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {AngularEditorConfig} from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
   styleUrls: ['./add-post.component.css']
 })
+
+
 export class AddPostComponent implements OnInit {
 
   public postForm: FormGroup;
   public message: string;
+
+  public editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    minHeight: '5rem',
+    maxHeight: 'auto',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    sanitize: true,
+    toolbarPosition: 'bottom',
+    defaultFontName: 'Arial',
+    defaultFontSize: '5',
+    defaultParagraphSeparator: 'p',
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ]
+  };
 
   constructor(private postService: PostServiceService,
               private formBuilder: FormBuilder,

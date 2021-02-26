@@ -6,8 +6,9 @@
           <h1 class="text-center">{{post.title}}</h1>
           <p class="text-center"><span class="by">by </span>{{post.author}}<span
             class="date">{{post.date.substring(0, 10)}}</span></p><img alt="image" class="img-fluid"
-                                                                       src="{{post.imagePath}}"></div>
-        <div style="white-space: pre-wrap;font-family: 'JetBrains Mono',serif">{{post.content}}</div>
+                                                                       src="{{post.imagePath}}">
+        </div>
+        <div class="text angular-editor" [innerHTML]="post.content"></div>
       </div>
     </div>
   </div>

@@ -62,8 +62,8 @@
   margin-bottom: 20px;
   line-height: 1.45;
   font-size: 16px;
-  font-weight: bold;
   color: #333;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {
@@ -161,7 +161,7 @@
 }
 
 h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Arial', sans-serif;
   color: #000000;
 }
 

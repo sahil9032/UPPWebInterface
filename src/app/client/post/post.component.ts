@@ -34,6 +34,7 @@ export class PostComponent implements OnInit {
     });
     this.postService.getPostById(this.id).subscribe(data => {
       this.post = data;
+      this.post.content = this.post.content.replace('img', 'img class=\'img-fluid\'');
     }, error => {
       this.router.navigate(['/error']);
     });
@@ -42,6 +43,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     this.postService.getPostById(this.id).subscribe(data => {
       this.post = data;
+      this.post.content = this.post.content.replace('img', 'img class=\'img-fluid\'');
     }, error => {
       this.router.navigate(['/error']);
     });

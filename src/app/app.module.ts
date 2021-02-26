@@ -24,6 +24,7 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
 import { RegisterComponent } from './register/register.component';
 import { ProblemsComponent } from './problems/problems.component';
 import { ProblemSolveComponent } from './problem-solve/problem-solve.component';
+import {AngularEditorModule} from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ProblemSolveComponent } from './problem-solve/problem-solve.component';
     HttpClientModule,
     ReactiveFormsModule,
     RecaptchaModule,
-    MaterialModule
+    MaterialModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
