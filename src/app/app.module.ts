@@ -25,6 +25,11 @@ import { RegisterComponent } from './register/register.component';
 import { ProblemsComponent } from './problems/problems.component';
 import { ProblemSolveComponent } from './problem-solve/problem-solve.component';
 import {AngularEditorModule} from '@kolkov/angular-editor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LandingpgComponent } from './client/landingpg/landingpg.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PredictComponent } from './client/predict/predict.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +50,9 @@ import {AngularEditorModule} from '@kolkov/angular-editor';
     QuizComponent,
     SubjectQuestionComponent,
     ProblemsComponent,
-    ProblemSolveComponent
+    ProblemSolveComponent,
+    LandingpgComponent, 
+    PredictComponent, 
   ],
   imports: [
     BrowserModule,
@@ -54,7 +61,10 @@ import {AngularEditorModule} from '@kolkov/angular-editor';
     ReactiveFormsModule,
     RecaptchaModule,
     MaterialModule,
-    AngularEditorModule
+    AngularEditorModule,
+    BrowserAnimationsModule,
+    NgbModule,  
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

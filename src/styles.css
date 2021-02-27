@@ -554,3 +554,6 @@ img {
 .team-boxed .social a:hover {
   opacity: 1;
 }
+
+html, body { height: 100%; scroll-behavior: smooth;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
