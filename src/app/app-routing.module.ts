@@ -16,9 +16,11 @@ import {AccessDeniedComponent} from './access-denied/access-denied.component';
 import {RegisterComponent} from './register/register.component';
 import {ProblemsComponent} from './problems/problems.component';
 import {ProblemSolveComponent} from './problem-solve/problem-solve.component';
+import { LandingpgComponent } from './client/landingpg/landingpg.component';
+import { PredictComponent } from './client/predict/predict.component';
 
 const routes: Routes = [
-  {path: 'index', component: IndexComponent},
+  {path: 'index', component: LandingpgComponent},
   {path: 'upp-login', component: LoginComponent},
   {path: 'post/:id', component: PostComponent},
   {path: 'placement', component: PlacementComponent},
@@ -32,6 +34,8 @@ const routes: Routes = [
   {path: 'internalerror', component: ServerErrorComponent},
   {path: 'access-denied', component: AccessDeniedComponent},
   {path: 'upp-register', component: RegisterComponent},
+  {path: 'blog', component: IndexComponent}, 
+  {path: 'predict', component: PredictComponent}, 
   {path: 'expert/add/post', component: AddPostComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
@@ -39,7 +43,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {useHash: true})],
-  exports: [RouterModule]
+  exports: [RouterModule], 
 })
 export class AppRoutingModule {
 }

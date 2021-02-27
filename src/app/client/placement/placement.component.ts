@@ -16,4 +16,8 @@ export class PlacementComponent implements OnInit {
   navigate(){
     this.router.navigate(['/plcrecord']);
   }
+  predict(){
+    this.router.navigate(['/predict']);
+
+  }
 }
