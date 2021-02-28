@@ -19,6 +19,7 @@ export class ProblemSolveComponent implements OnInit {
   // @ts-ignore
   public problem: Iproblems;
   public submissionForm: FormGroup;
+  public status: boolean;
   public languages = [
     {
       id: 50,
@@ -46,8 +47,10 @@ export class ProblemSolveComponent implements OnInit {
               private codingService: CodingService,
               private formBuilder: FormBuilder) {
     this.id = this.activatedRoute.snapshot.params.id;
+    this.status = true;
     this.codingService.getById(this.id).subscribe(data => {
       this.problem = data;
+      this.status = false;
     }, error => {
       this.router.navigate(['/error']);
     });

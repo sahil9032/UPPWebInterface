@@ -18,6 +18,7 @@ export class PostComponent implements OnInit {
   public commentForm: FormGroup;
   public message: string;
   public isHuman: boolean;
+  public status: boolean;
 
   constructor(private postService: PostServiceService,
               private activatedRoute: ActivatedRoute,
@@ -32,18 +33,22 @@ export class PostComponent implements OnInit {
       author: ['Anonymous'],
       content: ['', Validators.required]
     });
+    this.status = true;
     this.postService.getPostById(this.id).subscribe(data => {
       this.post = data;
       this.post.content = this.post.content.replace('img', 'img class=\'img-fluid\'');
+      this.status = false;
     }, error => {
       this.router.navigate(['/error']);
     });
   }
 
   ngOnInit(): void {
+    this.status = true;
     this.postService.getPostById(this.id).subscribe(data => {
       this.post = data;
       this.post.content = this.post.content.replace('img', 'img class=\'img-fluid\'');
+      this.status = false;
     }, error => {
       this.router.navigate(['/error']);
     });

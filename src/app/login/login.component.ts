@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
       this.authService.login(User).subscribe(data => {
         const item = {
           token: data.token,
-          expiry: new Date().getTime() + 60 * 60 * 1000,
+          expiration: new Date().getTime() + 60 * 60 * 1000,
         };
         localStorage.setItem('token', JSON.stringify(item));
         this.interfaceService.isUserLoggedIn.next(true);

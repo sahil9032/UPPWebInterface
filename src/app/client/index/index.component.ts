@@ -12,17 +12,21 @@ export class IndexComponent implements OnInit {
 
   public posts: IPost[] = [];
   public newPosts: IPost[][] = [];
+  public status: boolean;
 
   constructor(private postService: PostServiceService,
               private router: Router) {
+    this.status = true;
   }
 
   ngOnInit(): void {
+    this.status = true;
     this.postService.getPost().subscribe(data => {
       this.posts = data;
       while (this.posts.length) {
         this.newPosts.push(this.posts.splice(0, 3));
       }
+      this.status = false;
     }, error => {
       this.router.navigate(['/internalerror']);
     });

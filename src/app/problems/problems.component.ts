@@ -11,14 +11,18 @@ import {Iproblems} from '../models/iproblems';
 export class ProblemsComponent implements OnInit {
 
   public problems: Iproblems[] = [];
+  public status: boolean;
 
   constructor(private codingService: CodingService,
               private router: Router) {
+    this.status = true;
   }
 
   ngOnInit(): void {
+    this.status = true;
     this.codingService.get().subscribe(data => {
       this.problems = data;
+      this.status = false;
     }, error => {
       this.router.navigate(['/internalerror']);
     });
