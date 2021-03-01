@@ -5,6 +5,7 @@ import {PostServiceService} from '../../services/post-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RecaptchaService} from '../../services/recaptcha.service';
 import {AuthService} from '../../services/auth.service';
+import {AngularEditorConfig} from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-post',
@@ -19,6 +20,13 @@ export class PostComponent implements OnInit {
   public message: string;
   public isHuman: boolean;
   public status: boolean;
+
+  public editorConfig: AngularEditorConfig = {
+    editable: false,
+    enableToolbar: false,
+    showToolbar: false,
+    sanitize: false
+  };
 
   constructor(private postService: PostServiceService,
               private activatedRoute: ActivatedRoute,

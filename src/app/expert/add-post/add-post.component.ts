@@ -24,7 +24,7 @@ export class AddPostComponent implements OnInit {
     maxHeight: 'auto',
     placeholder: 'Enter text here...',
     translate: 'no',
-    sanitize: true,
+    sanitize: false,
     toolbarPosition: 'bottom',
     defaultFontName: 'Arial',
     defaultFontSize: '5',

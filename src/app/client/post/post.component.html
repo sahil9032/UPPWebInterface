@@ -21,7 +21,7 @@
               class="date">{{post.date.substring(0, 10)}}</span></p>
             <img alt="image" class="img-fluid" src="{{post.imagePath}}">
           </div>
-          <div class="text angular-editor" [innerHTML]="post.content"></div>
+          <angular-editor [config]="editorConfig" [(ngModel)]="post.content"></angular-editor>
         </div>
       </div>
     </div>
