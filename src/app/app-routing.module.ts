@@ -18,6 +18,7 @@ import {ProblemsComponent} from './problems/problems.component';
 import {ProblemSolveComponent} from './problem-solve/problem-solve.component';
 import { LandingpgComponent } from './client/landingpg/landingpg.component';
 import { PredictComponent } from './client/predict/predict.component';
+import {AddProblemComponent} from './expert/add-problem/add-problem.component';
 
 const routes: Routes = [
   {path: 'index', component: LandingpgComponent},
@@ -37,7 +38,8 @@ const routes: Routes = [
   {path: 'upp-register', component: RegisterComponent},
   {path: 'blog', component: IndexComponent},
   {path: 'predict', component: PredictComponent},
-  {path: 'expert/add/post', component: AddPostComponent, canActivate: [AuthGuard]},
+  {path: 'add/post', component: AddPostComponent, canActivate: [AuthGuard]},
+  {path: 'add/problem', component: AddProblemComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

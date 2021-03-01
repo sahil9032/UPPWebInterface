@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { IndexComponent } from './client/index/index.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PostComponent } from './client/post/post.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import {RecaptchaModule} from 'ng-recaptcha';
 import { ServerErrorComponent } from './server-error/server-error.component';
@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LandingpgComponent } from './client/landingpg/landingpg.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PredictComponent } from './client/predict/predict.component';
+import { AddProblemComponent } from './expert/add-problem/add-problem.component';
 
 
 @NgModule({
@@ -51,21 +52,22 @@ import { PredictComponent } from './client/predict/predict.component';
     SubjectQuestionComponent,
     ProblemsComponent,
     ProblemSolveComponent,
-    LandingpgComponent, 
-    PredictComponent, 
+    LandingpgComponent,
+    PredictComponent, AddProblemComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    RecaptchaModule,
-    MaterialModule,
-    AngularEditorModule,
-    BrowserAnimationsModule,
-    NgbModule,  
-   
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        RecaptchaModule,
+        MaterialModule,
+        AngularEditorModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        FormsModule,
+
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

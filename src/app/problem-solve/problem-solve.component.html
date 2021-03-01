@@ -11,80 +11,55 @@
   </div>
 </ng-template>
 <ng-template #elseBlock>
-  <div class="article-clean">
-    <div class="container" style="background-color: #F0F0F0;">
-      <div class="row">
-        <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
-          <!-- Start: Intro -->
-          <div class="intro">
-            <h1 class="text-center">{{ problem.title }}</h1><!-- Start: Date and Author -->
-            <p class="text-center"><span class="by">by</span> <a href="#">{{problem.author}}</a></p>
-            <!-- End: Date and Author -->
-          </div><!-- End: Intro -->
-          <!-- Start: Statement -->
-          <div class="text font-weight-bold">
-            <p>{{problem.ProblemStatement}}</p>
-          </div><!-- End: Statement -->
-          <!-- Start: InputTextCase -->
-          <div class="text">
-            <div class="timelimit">
-              <div class="title"><strong>Time-limit: {{problem.TimeLimit}}s</strong></div>
-            </div>
-          </div>
-          <div class="text">
-            <div class="memorylimit">
-              <div class="title"><strong>Memory-limit: {{problem.MemoryLimit}}Kb</strong></div>
-            </div>
-          </div>
-          <div class="text">
-            <div class="input">
-              <div class="title"><strong>Input</strong></div>
-              <textarea readonly>{{problem.SampleTestCases[0].test}}</textarea>
-            </div>
-          </div><!-- End: InputTextCase -->
-          <!-- Start: OutputTestCase -->
-          <div class="text">
-            <div class="output">
-              <div class="title"><strong>Output</strong></div>
-              <textarea readonly>{{problem.SampleTestCases[0].output}}</textarea>
-            </div>
-          </div><!-- End: OutputTestCase -->
-          <br/>
-          <form method="post" [formGroup]="submissionForm" (ngSubmit)="add()">
-            <div class="form-group">
+  <div class="container" style="background-color: #F0F0F0;">
+    <br/>
+    <div class="row">
+      <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+        <!-- Start: Intro -->
+        <div class="intro">
+          <h1 class="text-center">{{ problem.title }}</h1><!-- Start: Date and Author -->
+          <p class="text-center"><span class="by">by</span> {{problem.author}}</p>
+          <p class="text-center"><span class="by">Time-limit: </span>{{problem.TimeLimit}}s</p>
+          <p class="text-center"><span class="by">Memory-limit: </span>{{problem.MemoryLimit}}Kb</p>
+          <!-- End: Date and Author -->
+        </div><!-- End: Intro -->
+        <!-- Start: Statement -->
+        <angular-editor [config]="editorConfig" [(ngModel)]="problem.ProblemStatement"></angular-editor>
+        <!-- End: Statement -->
+        <!-- Start: InputTextCase -->
+        <div class="card">
+          <div class="card-header"><strong>Input</strong></div>
+          <div class="card-body" style="white-space: pre-line">{{problem.SampleTestCases[0].test}}</div>
+        </div><!-- End: InputTextCase -->
+        <!-- Start: OutputTestCase -->
+        <div class="card">
+          <div class="card-header"><strong>Output</strong></div>
+          <div class="card-body" style="white-space: pre-line">{{problem.SampleTestCases[0].output}}</div>
+        </div><!-- End: OutputTestCase -->
+        <br/>
+        <form method="post" [formGroup]="submissionForm" (ngSubmit)="add()">
+          <div class="form-group">
               <textarea rows="25" class="form-control" name="source_code"
                         formControlName="source_code">Code goes here</textarea>
-            </div>
-            <div class="form-group">
-              <select formControlName="language_id">
-                <option *ngFor="let p of languages" [value]="p.id">{{p.name}}</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <button type="submit">Submit</button>
-            </div>
-          </form>
-          <br>
-          <div class="text">
-            <div class="status">
-              <div class="title"><strong>Status</strong></div>
-              <textarea readonly>{{message}}</textarea>
-            </div>
           </div>
-          <div class="text">
-            <div class="stderr">
-              <div class="title"><strong>Error</strong></div>
-              <textarea readonly>{{stderr}}</textarea>
-            </div>
+          <div class="form-group">
+            <select formControlName="language_id">
+              <option *ngFor="let p of languages" [value]="p.id">{{p.name}}</option>
+            </select>
           </div>
-          <div class="text">
-            <div class="compile">
-              <div class="title"><strong>Compilation Error</strong></div>
-              <textarea readonly>{{compile_output}}</textarea>
-            </div>
+          <div class="form-group">
+            <button type="submit">Submit</button>
           </div>
+        </form>
+        <br>
+        <div class="card">
+          <div class="card-header"><strong>Status</strong></div>
+          <div class="card-body"
+               style="white-space: pre-line">{{compile_output != '' ? compile_output : (stderr != '' ? stderr : message)}}</div>
         </div>
       </div>
     </div>
+
+    <br/>
   </div>
 </ng-template>

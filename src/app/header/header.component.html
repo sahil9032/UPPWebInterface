@@ -1,4 +1,4 @@
-<nav class="navbar nabbar-default navbar-fixed-top navbar-dark navbar-expand-md nav-bar-custom shadow p-3 " role="navigation">
+<nav class="navbar navbar-dark navbar-expand-md nav-bar-custom " role="navigation">
   <div class="container-fluid"><a class="navbar-brand" href="#">Plax Placement</a>
     <button class="navbar-toggler" data-target="#navcol-1" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span
       class="navbar-toggler-icon"></span></button>
@@ -9,7 +9,10 @@
           <a class="nav-link" routerLink="index" routerLinkActive="true">Home</a>
         </li>
         <li class="nav-item" role="presentation" *ngIf="isExpert">
-          <a class="nav-link" routerLink="expert/add/post" routerLinkActive="true">Add Post</a>
+          <a class="nav-link" routerLink="add/post" routerLinkActive="true">Add Post</a>
+        </li>
+        <li class="nav-item" role="presentation" *ngIf="isExpert">
+          <a class="nav-link" routerLink="add/problem" routerLinkActive="true">Add Problem</a>
         </li>
         <li class="nav-item" role="presentation">
           <a class="nav-link" routerLink="article" routerLinkActive="true">Articles</a>

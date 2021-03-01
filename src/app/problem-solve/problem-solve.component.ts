@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CodingService} from '../services/coding.service';
 import {Iproblems} from '../models/iproblems';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AngularEditorConfig} from '@kolkov/angular-editor';
+import {angularEditorConfig} from '@kolkov/angular-editor/lib/config';
 
 @Component({
   selector: 'app-problem-solve',
@@ -41,6 +43,13 @@ export class ProblemSolveComponent implements OnInit {
       id: 71,
       name: 'Python (3.8.1)'
     }];
+
+  public editorConfig: AngularEditorConfig = {
+    editable: false,
+    enableToolbar: false,
+    showToolbar: false,
+    sanitize: false
+  };
 
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
