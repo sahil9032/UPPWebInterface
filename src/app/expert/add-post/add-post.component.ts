@@ -3,6 +3,7 @@ import {PostServiceService} from '../../services/post-service.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-add-post',
@@ -28,6 +29,8 @@ export class AddPostComponent implements OnInit {
     defaultFontName: 'Arial',
     defaultFontSize: '5',
     defaultParagraphSeparator: 'p',
+    uploadUrl: environment.backend + 'blog/uploadImage',
+    uploadWithCredentials: false,
     customClasses: [
       {
         name: 'quote',
