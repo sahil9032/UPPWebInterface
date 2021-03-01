@@ -1,3 +1,4 @@
+import { FooterMinComponent } from './footer-min/footer-min.component';
 import { SubjectQuestionComponent } from './client/subject-question/subject-question.component';
 import { QuizComponent } from './client/quiz/quiz.component';
 import { PlcrecordComponent } from './client/plcrecord/plcrecord.component';
@@ -53,7 +54,9 @@ import { AddProblemComponent } from './expert/add-problem/add-problem.component'
     ProblemsComponent,
     ProblemSolveComponent,
     LandingpgComponent,
-    PredictComponent, AddProblemComponent,
+    PredictComponent, 
+    AddProblemComponent,
+    FooterMinComponent,
   ],
     imports: [
         BrowserModule,
