@@ -258,3 +258,35 @@
 /* .abc{
     font-size: 35px !important;
 } */
+
+.article-img-class{
+  display:block;
+  /* max-width:230px;
+  max-height:105px;
+  width: auto;
+  height: auto; */
+  object-fit: cover;
+}
+
+.home-card-text{
+  font-family:'Courier New', Courier, monospace;
+  font-weight:normal;
+  font-size: medium;
+}
+
+.home-card-title{
+
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size:x-large;
+  
+}
+
+.home-quote{
+  font-family:monospace;
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+
+/* try  */
