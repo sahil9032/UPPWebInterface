@@ -13,8 +13,8 @@
         <p style="font-size:medium;">
          Learn more about the past placement trends of your campus. Get information about the companies that visited your campus.
         </p>
-        
-        <button class="btn" style="margin-left: 30%; background-color:#0A192F; color: azure; font-weight: 100;" (click)="navigate()">View Records</button>
+
+        <button class="btn" style="margin-left: 30%; background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/past">View Records</button>
       </mat-card-content>
 
     </mat-card>
@@ -32,11 +32,11 @@
           Know more about Off-Campus opportunities. Learn about the companies hiring off campus. The competition is real here!
         </p>
         <div class="row" style="align-content: center;">
-        <button class="btn" style="margin-left: 15%; background-color:#0A192F; color: azure; font-weight: 100;" (click)="navigate()">Google</button>
-        <button class="btn" style="background-color:#0A192F; color: azure; font-weight: 100;" (click)="navigate()">Amazon</button>
-        <button class="btn" style="background-color:#0A192F; color: azure; font-weight: 100;" (click)="navigate()">Others</button>
+        <button class="btn" style="margin-left: 15%; background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/plcrecord/google">Google</button>
+        <button class="btn" style="background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/plcrecord/aws">Amazon</button>
+        <button class="btn" style="background-color:#0A192F; color: azure; font-weight: 100;" routerLink="/plcrecord/naukri">Others</button>
         </div>
-        
+
       </mat-card-content>
     </mat-card>
   </div>
@@ -51,11 +51,11 @@
       <mat-card-content>
         <h3><b>Predict Your Placement </b></h3>
         <p style="font-size: medium;">
-         Based on the past we can probably predict your future. Data knows everything. You can get to know if you will be placed or not based on your results. Try now! 
+         Based on the past we can probably predict your future. Data knows everything. You can get to know if you will be placed or not based on your results. Try now!
         </p>
-        
+
         <button class="btn" style="margin-left: 30%; background-color:#0A192F; color: azure; font-weight: 100;" (click)="predict()">Predict Now</button>
-      
+
       </mat-card-content>
 
     </mat-card>
@@ -72,17 +72,17 @@
       <div class="child bg-one">
         <a href="#">Los Angeles</a>
       </div>
-     
+
     </div>
-    
+
     <div class="parent right" onclick="">
       <div class="child bg-two">
         <a href="#">London</a>
       </div>
     </div>
 
-    
-     
-    
+
+
+
   </div>
    -->

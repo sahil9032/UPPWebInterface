@@ -20,6 +20,7 @@ import {LandingpgComponent} from './client/landingpg/landingpg.component';
 import {PredictComponent} from './client/predict/predict.component';
 import {AddProblemComponent} from './expert/add-problem/add-problem.component';
 import {AddQuestionComponent} from './expert/add-question/add-question.component';
+import {PastComponent} from './client/past/past.component';
 
 const routes: Routes = [
   {path: 'index', component: LandingpgComponent},
@@ -31,7 +32,8 @@ const routes: Routes = [
   {path: 'problems/:id', component: ProblemSolveComponent},
   {path: 'quiz', component: QuizComponent},
   {path: 'question/:subject', component: SubjectQuestionComponent},
-  {path: 'plcrecord', component: PlcrecordComponent},
+  {path: 'plcrecord/:record', component: PlcrecordComponent},
+  {path: 'past', component: PastComponent},
   {path: 'error', component: PageNotFoundComponent},
   {path: 'terms', component: TermsAndConditionsComponent},
   {path: 'internalerror', component: ServerErrorComponent},
