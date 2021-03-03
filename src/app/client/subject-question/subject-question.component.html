@@ -1,70 +1,76 @@
-
-<h2 class="display-2" style="padding-top: 2%; text-align: center;">Subject 1</h2>
-<div class="container">
-
-    
-      <mat-vertical-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-
-
-          <form [formGroup]="firstFormGroup" >
-            <ng-template matStepLabel>Sohan started a business with a capital of Rs. 80000. After 6 months Mohan joined as a partner by investing Rs. 65000. After one year they earned total profit Rs. 20000. What is share of Sohan in the profit?</ng-template>
-            
-              <mat-form-field appearance="fill">
-                <mat-label>Pick an option</mat-label>
-                <mat-select>
-                  <mat-option value="option">5222.2</mat-option>
-                  <mat-option value="option">14222.2</mat-option>
-                  <mat-option value="option">156356.3</mat-option>
-                  <mat-option value="option">None</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" >
-          <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel>A, B and C are partners. They have invested Rs.35000, Rs. 25000 and 10,000 respectively for the same period. If the total profit is Rs. 18000, find the share of A.</ng-template>
-            <mat-form-field appearance="fill">
-                <mat-label>Pick an option</mat-label>
-                <mat-select>
-                  <mat-option value="option">5222.2</mat-option>
-                  <mat-option value="option">14222.2</mat-option>
-                  <mat-option value="option">156356.3</mat-option>
-                  <mat-option value="option">None</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel> A's and B's shares in a business are in the ratio of 5:3. If A has invested Rs. 70000 for 12 months, for what period B has invested Rs. 60000?</ng-template>
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div style="margin-top: 100px; margin-bottom: 100px">
+    <div class="container">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <h2 class="display-2" style="padding-top: 2%; text-align: center;">{{subject}}</h2>
+  <div class="container">
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>{{question[0].question}}
+          </ng-template>
           <mat-form-field appearance="fill">
             <mat-label>Pick an option</mat-label>
-            <mat-select>
-              <mat-option value="option">5222.2</mat-option>
-              <mat-option value="option">14222.2</mat-option>
-              <mat-option value="option">156356.3</mat-option>
-              <mat-option value="option">None</mat-option>
+            <mat-select formControlName="firstCtrl">
+              <mat-option value="{{question[0].options[0]}}">{{question[0].options[0]}}</mat-option>
+              <mat-option value="{{question[0].options[1]}}">{{question[0].options[1]}}</mat-option>
+              <mat-option value="{{question[0].options[2]}}">{{question[0].options[2]}}</mat-option>
+              <mat-option value="{{question[0].options[3]}}">{{question[0].options[3]}}</mat-option>
             </mat-select>
-        </mat-form-field>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>{{question[1].question}}
+          </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Pick an option</mat-label>
+            <mat-select formControlName="secondCtrl">
+              <mat-option value="{{question[1].options[0]}}">{{question[1].options[0]}}</mat-option>
+              <mat-option value="{{question[1].options[1]}}">{{question[1].options[1]}}</mat-option>
+              <mat-option value="{{question[1].options[2]}}">{{question[1].options[2]}}</mat-option>
+              <mat-option value="{{question[1].options[3]}}">{{question[1].options[3]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>{{question[2].question}}
+          </ng-template>
+          <mat-form-field appearance="fill">
+            <mat-label>Pick an option</mat-label>
+            <mat-select formControlName="thirdCtrl">
+              <mat-option value="{{question[2].options[0]}}">{{question[2].options[0]}}</mat-option>
+              <mat-option value="{{question[2].options[1]}}">{{question[2].options[1]}}</mat-option>
+              <mat-option value="{{question[2].options[2]}}">{{question[2].options[2]}}</mat-option>
+              <mat-option value="{{question[2].options[3]}}">{{question[2].options[3]}}</mat-option>
+            </mat-select>
+          </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
             <button mat-button (click)="finalScore()">Submit</button>
           </div>
-        </mat-step>
-      </mat-vertical-stepper>
-      
-
-</div>
-
-<div class="container">
-    <label id="score"></label>
-
-</div>
+        </form>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</ng-template>
 <app-footer-min></app-footer-min>

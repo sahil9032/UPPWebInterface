@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
 export interface Tile {
@@ -15,32 +15,17 @@ export interface Tile {
 })
 export class QuizComponent implements OnInit {
 
-  constructor() { }
-  ngOnInit(): void {    
-  }
-
-  tiles: Tile[] = [
-    {text: 'Subject 1', cols: 3, rows: 1, color: '#f1f1f1'},
-    {text: 'Subject 2', cols: 1, rows: 2, color: '#f7f6e7'},
-    {text: 'Subject 3', cols: 1, rows: 1, color: '#f4f5db'},
-    {text: 'Subject 4', cols: 2, rows: 1, color: '#ffe8e8'},
-    
-    {text: 'Subject 1', cols: 1, rows: 2, color: '#f7f6e7'},
-    {text: 'Subject 2', cols: 3, rows: 1, color: '#f1f1f1'},
-    {text: 'Subject 3', cols: 1, rows: 1, color: '#f4f5db'},
-    {text: 'Subject 4', cols: 2, rows: 1, color: '#ffe8e8'},
-
-    {text: 'Subject 1', cols: 3, rows: 1, color: '#f1f1f1'},
-    {text: 'Subject 2', cols: 1, rows: 2, color: '#f7f6e7'},
-    {text: 'Subject 3', cols: 1, rows: 1, color: '#f4f5db'},
-    {text: 'Subject 4', cols: 2, rows: 1, color: '#ffe8e8'},
-    
-    {text: 'Subject 1', cols: 1, rows: 2, color: '#f7f6e7'},
-    {text: 'Subject 2', cols: 3, rows: 1, color: '#f1f1f1'},
-    {text: 'Subject 3', cols: 1, rows: 1, color: '#f4f5db'},
-    {text: 'Subject 4', cols: 2, rows: 1, color: '#ffe8e8'},
+  public tiles: Tile[] = [
+    {text: 'Login and Reasoning', cols: 3, rows: 1, color: '#f1f1f1'},
+    {text: 'Language', cols: 1, rows: 2, color: '#f7f6e7'},
+    {text: 'Coding', cols: 1, rows: 1, color: '#f4f5db'},
+    {text: 'CS fundamental', cols: 2, rows: 1, color: '#ffe8e8'},
   ];
 
+  constructor() {
+  }
 
+  ngOnInit(): void {
+  }
 
 }

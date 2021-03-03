@@ -16,9 +16,10 @@ import {AccessDeniedComponent} from './access-denied/access-denied.component';
 import {RegisterComponent} from './register/register.component';
 import {ProblemsComponent} from './problems/problems.component';
 import {ProblemSolveComponent} from './problem-solve/problem-solve.component';
-import { LandingpgComponent } from './client/landingpg/landingpg.component';
-import { PredictComponent } from './client/predict/predict.component';
+import {LandingpgComponent} from './client/landingpg/landingpg.component';
+import {PredictComponent} from './client/predict/predict.component';
 import {AddProblemComponent} from './expert/add-problem/add-problem.component';
+import {AddQuestionComponent} from './expert/add-question/add-question.component';
 
 const routes: Routes = [
   {path: 'index', component: LandingpgComponent},
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path: 'problems', component: ProblemsComponent},
   {path: 'problems/:id', component: ProblemSolveComponent},
   {path: 'quiz', component: QuizComponent},
-  {path: 'question', component: SubjectQuestionComponent},
+  {path: 'question/:subject', component: SubjectQuestionComponent},
   {path: 'plcrecord', component: PlcrecordComponent},
   {path: 'error', component: PageNotFoundComponent},
   {path: 'terms', component: TermsAndConditionsComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'predict', component: PredictComponent},
   {path: 'add/post', component: AddPostComponent, canActivate: [AuthGuard]},
   {path: 'add/problem', component: AddProblemComponent, canActivate: [AuthGuard]},
+  {path: 'add/question', component: AddQuestionComponent, canActivate: [AuthGuard]},
   {path: '', redirectTo: 'index', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

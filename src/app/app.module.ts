@@ -31,6 +31,7 @@ import { LandingpgComponent } from './client/landingpg/landingpg.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PredictComponent } from './client/predict/predict.component';
 import { AddProblemComponent } from './expert/add-problem/add-problem.component';
+import { AddQuestionComponent } from './expert/add-question/add-question.component';
 
 
 @NgModule({
@@ -54,9 +55,10 @@ import { AddProblemComponent } from './expert/add-problem/add-problem.component'
     ProblemsComponent,
     ProblemSolveComponent,
     LandingpgComponent,
-    PredictComponent, 
+    PredictComponent,
     AddProblemComponent,
     FooterMinComponent,
+    AddQuestionComponent,
   ],
     imports: [
         BrowserModule,
