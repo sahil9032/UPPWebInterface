@@ -1,3 +1,7 @@
-table {
-  width: 100%;
+.mat-elevation-z8 {
+  overflow-x: auto;
+}
+
+th {
+  min-width: 120px;
 }
