@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {MaterialModule} from '../../material.module';
+import {PlacementComponent} from '../placement/placement.component';
+import {FooterMinComponent} from '../../footer-min/footer-min.component';
 
 describe('IndexComponent', () => {
   let component: IndexComponent;
@@ -14,7 +16,7 @@ describe('IndexComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndexComponent ],
+      declarations: [ IndexComponent, FooterMinComponent ],
       imports: [
         BrowserModule,
         AppRoutingModule,

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TermsAndConditionsComponent } from './terms-and-conditions.component';
+import {PlacementComponent} from '../client/placement/placement.component';
+import {FooterMinComponent} from '../footer-min/footer-min.component';
 
 describe('TermsAndConditionsComponent', () => {
   let component: TermsAndConditionsComponent;
@@ -8,7 +10,7 @@ describe('TermsAndConditionsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TermsAndConditionsComponent ]
+      declarations: [ TermsAndConditionsComponent, FooterMinComponent ]
     })
     .compileComponents();
   });

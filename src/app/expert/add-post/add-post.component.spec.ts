@@ -7,6 +7,8 @@ import {AppRoutingModule} from '../../app-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {MaterialModule} from '../../material.module';
+import {PlacementComponent} from '../../client/placement/placement.component';
+import {FooterMinComponent} from '../../footer-min/footer-min.component';
 
 describe('AddPostComponent', () => {
   let component: AddPostComponent;
@@ -14,7 +16,7 @@ describe('AddPostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddPostComponent],
+      declarations: [AddPostComponent, FooterMinComponent],
       imports: [
         BrowserModule,
         AppRoutingModule,
@@ -33,7 +35,4 @@ describe('AddPostComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

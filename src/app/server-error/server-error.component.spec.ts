@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ServerErrorComponent } from './server-error.component';
+import {PlacementComponent} from '../client/placement/placement.component';
+import {FooterMinComponent} from '../footer-min/footer-min.component';
 
 describe('ServerErrorComponent', () => {
   let component: ServerErrorComponent;
@@ -8,7 +10,7 @@ describe('ServerErrorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ServerErrorComponent ]
+      declarations: [ ServerErrorComponent, FooterMinComponent ]
     })
     .compileComponents();
   });

@@ -7,6 +7,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {MaterialModule} from '../../material.module';
+import {PlacementComponent} from '../placement/placement.component';
+import {FooterMinComponent} from '../../footer-min/footer-min.component';
 
 describe('SubjectQuestionComponent', () => {
   let component: SubjectQuestionComponent;
@@ -14,7 +16,7 @@ describe('SubjectQuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SubjectQuestionComponent ],
+      declarations: [ SubjectQuestionComponent, FooterMinComponent ],
       imports: [
         BrowserModule,
         AppRoutingModule,

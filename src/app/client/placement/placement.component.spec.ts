@@ -7,6 +7,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RecaptchaModule} from 'ng-recaptcha';
 import {MaterialModule} from '../../material.module';
+import {FooterMinComponent} from '../../footer-min/footer-min.component';
 
 describe('PlacementComponent', () => {
   let component: PlacementComponent;
@@ -14,7 +15,7 @@ describe('PlacementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlacementComponent ],
+      declarations: [ PlacementComponent, FooterMinComponent],
       imports: [
         BrowserModule,
         AppRoutingModule,

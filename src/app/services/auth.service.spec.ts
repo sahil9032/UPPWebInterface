@@ -13,6 +13,12 @@ describe('AuthService', () => {
   let service: AuthService;
   const testSuite = [{email: 'wrong@user.com', password: 'wrong-password'},
     {email: 'test@test.com', password: environment.password}];
+  const existingUser = {
+    email: 'user1@gmail.com',
+    password: 'user10702',
+    roles: 'admin',
+    name: 'user1'
+  }
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -32,7 +38,7 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should fail', (done: DoneFn) => {
+  it('R2.A', (done: DoneFn) => {
     service.login(testSuite[0]).subscribe(value => {
       expect(value.error.message).toBe('Auth failed');
       done();
@@ -42,12 +48,24 @@ describe('AuthService', () => {
     });
   });
 
-  it('should be sucess', (done: DoneFn) => {
+  it('R2.B', (done: DoneFn) => {
     service.login(testSuite[1]).subscribe(value => {
       expect(value.message).toBe('Auth successful');
       done();
     }, error => {
       expect(error.message).toBe('Auth successful');
+      done();
+    });
+  });
+
+  it('R2.1.A', (done: DoneFn) => {
+    service.signup(existingUser).subscribe(value => {
+      console.log(value)
+      expect(value.error.message).toBe('Mail exists');
+      done();
+    }, error => {
+      console.log(error)
+      expect(error.error.message).toBe('Mail exists');
       done();
     });
   });
